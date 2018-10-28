@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Remote</string>
+    <string name="right">Right</string>
+    <string name="forward">Forward</string>
+    <string name="backward">Backward</string>
+    <string name="left">Left</string>
+    <string name="stop">Stop</string>
+    <string name="_90_right">90 Right</string>
+    <string name="_90_left">90 Left</string>
+    <string name="upSpeedButton">˄</string>
+    <string name="downSpeedButton">˅</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="mode">Mode:</string>
+    <string name="todo">TODO</string>
+</resources>
