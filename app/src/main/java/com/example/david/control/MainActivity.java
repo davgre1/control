@@ -11,6 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private BluetoothSocket socket;
     private BluetoothAdapter bluetoothAdapter;
     private OutputStream outputStream;
+    private TextView foundation;
 
     Button forwardButton, backwardButton, rightButton, leftButton, rightSpinButton, leftSpinButton, downSpeedButton, upSpeedButton, stopButton,
             button44;
@@ -37,10 +39,20 @@ public class MainActivity extends AppCompatActivity {
 
     private int[][] table;
 
+    int board[][] = {{0, 0, 0, 0},
+            {0, 0, 0, 0},
+            {0, 0, 0, 0},
+            {0, 0, 0, 0}
+    };
+
+    String newBoard;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        foundation = findViewById(R.id.foundation);
 
         forwardButton = findViewById(R.id.forwardButton);
         backwardButton = findViewById(R.id.backwardButton);
@@ -60,13 +72,20 @@ public class MainActivity extends AppCompatActivity {
 
         modeButton.setChecked(false);
 
-        button44 = findViewById(R.id.button44);
+        //button44 = findViewById(R.id.button44);
 
         table = new int[9][9];
 
+        for (int row = 0; row < board.length; row++)
+        {
+            for (int column = 0; column < board[row].length; column++)
+            {
+                newBoard = Integer.toString(board[row][column]);
+            }
+        }
 
-        button44.setBackgroundColor(Color.BLACK);
-
+//        button44.setBackgroundColor(Color.BLACK);
+        foundation.setText(newBoard);
 
         forwardButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
