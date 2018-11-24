@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private OutputStream outputStream;
 
     Button forwardButton, backwardButton, rightButton, leftButton, rightSpinButton, leftSpinButton, downSpeedButton, upSpeedButton, stopButton,
-            button00;
+            button44;
     Switch connectBluetoothButton, modeButton;
     String command;
 
@@ -60,17 +60,12 @@ public class MainActivity extends AppCompatActivity {
 
         modeButton.setChecked(false);
 
-        button00 = findViewById(R.id.button00);
+        button44 = findViewById(R.id.button44);
 
         table = new int[9][9];
 
 
-        button00.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                button00.setBackgroundColor(Color.DKGRAY);
-            }
-        });
+        button44.setBackgroundColor(Color.BLACK);
 
 
         forwardButton.setOnTouchListener(new View.OnTouchListener() {
