@@ -7,10 +7,15 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Switch;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -30,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private BluetoothSocket socket;
     private BluetoothAdapter bluetoothAdapter;
     private OutputStream outputStream;
-    private TextView foundation;
+    private TableLayout tableLayout;
 
     Button forwardButton, backwardButton, rightButton, leftButton, rightSpinButton, leftSpinButton, downSpeedButton, upSpeedButton, stopButton,
             button44;
@@ -39,12 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
     private int[][] table;
 
-    int board[][] = {{0, 0, 0, 0},
-            {0, 0, 0, 0},
-            {0, 0, 0, 0},
-            {0, 0, 0, 0}
-    };
-
     String newBoard;
 
     @Override
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        foundation = findViewById(R.id.foundation);
+        tableLayout = findViewById(R.id.tableLayout1);
 
         forwardButton = findViewById(R.id.forwardButton);
         backwardButton = findViewById(R.id.backwardButton);
@@ -74,18 +73,9 @@ public class MainActivity extends AppCompatActivity {
 
         //button44 = findViewById(R.id.button44);
 
-        table = new int[9][9];
+        table = new int[25][25];
 
-        for (int row = 0; row < board.length; row++)
-        {
-            for (int column = 0; column < board[row].length; column++)
-            {
-                newBoard = Integer.toString(board[row][column]);
-            }
-        }
-
-//        button44.setBackgroundColor(Color.BLACK);
-        foundation.setText(newBoard);
+        fillTable(25, table, tableLayout);
 
         forwardButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -406,5 +396,29 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
     }
+
+    private void fillTable(final int n, final int[][] matrix, TableLayout table) {
+
+        for (int i = 0; i < n; i++) {
+            TableRow row = new TableRow(MainActivity.this);
+
+            row.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
+
+            for (int j = 0; j < n; j++) {
+                TextView edit = new TextView(this);
+
+                edit.setInputType(InputType.TYPE_CLASS_NUMBER);
+
+                edit.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
+
+                edit.setText(Integer.toString(matrix[i][j]));
+
+
+                row.addView(edit);
+            }
+            table.addView(row);
+        }
+    }
+
 }
 
