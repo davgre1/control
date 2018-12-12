@@ -1,6 +1,7 @@
 # control
 Android App controlling an Arduino based robot manually and/or autonomously
 
+
 Parts
 
 Ardiuno https://www.amazon.com/gp/product/B01DGD2GAO/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1
@@ -24,3 +25,7 @@ Mounting hardware https://www.amazon.com/gp/product/B07411J312/ref=oh_aui_detail
 Battery https://www.amazon.com/gp/product/B007RQW5WG/ref=oh_aui_detailpage_o09_s00?ie=UTF8&psc=1
 
 [Optional] Soldering Kit https://www.amazon.com/gp/product/B074W3W55T/ref=oh_aui_detailpage_o08_s00?ie=UTF8&psc=1
+
+In this repo you will find the INO file for Arduino, the parts list and the android code
+
+[In progress]
